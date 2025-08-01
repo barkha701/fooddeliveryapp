@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Redux 
+can be used with any JS libarary. to be used to manage state in large scale applications.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Zustand 
+Another library which is gaining popularity other than redux and does the same thing as redux. 
 
-## Available Scripts
+# Redux store 
+a JS object, kept at a central point. 
+in case of huge redux store, we make slices to distrbute data. 
+# slice 
+logical separations in redux store. Eg : user slice, theme slice, cart slice, etc. 
 
-In the project directory, you can run:
+# onClick => dipatch(action) => function call => modifications by function call (slice of the store modified)
+# function call is known as the reducer
 
-### `npm start`
+# selector  
+used to read data from redux store and then modify react component 
+above phenomenon is known is
+# subscribing to the store 
+used to make the data
+# in sync 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+useSelector
+useDispatch
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Redux toolkit steps 
+- install @reduxjs/toolkit and react-redux
+- build our store    ({configureStore} from redux-toolkit and reducers)
+- connect our store to app 
+- slice (cart slice)
+- dispatch (action)
+- selector 
 
-### `npm test`
+# redux toolkit says either mutate the existing state or return a new state
+# state = []; will only modify the local variable
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# different calls
+<button
+onClick = {handleItem} 
+onClick = {() => handleItem(item)} // writing a callback function
+onClick = {handleItem(item)} //calling the fn right away
+>
+</button>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# same code example using selector :
 
-### `npm run eject`
+const cartItems = useSelector((store) => store.cart.items );
+OR
+const store = useSelector((store) => store); const cartItems = store.cart.items ;
+This is very inefficient because here we are subscribing to the whole store in const store and whenever any part of store changes it updates unnecessarily. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# redux dev tools : a browser tool helps in debugging 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
