@@ -1,4 +1,5 @@
 import {useSelector} from "react-redux";
+import { company_logo } from "../utils/constants";
 
 const Header = () =>
 {
@@ -9,7 +10,7 @@ const Header = () =>
           <div className="logo-container">
           <img height="200px"
           alt = "companylogo"
-          src="https://static.vecteezy.com/system/resources/previews/010/952/713/large_2x/food-delivery-logo-design-speedy-food-logo-concept-free-vector.jpg"></img>
+          src= {company_logo}></img>
           </div>
         <div className="nav-items">
          <ul>
