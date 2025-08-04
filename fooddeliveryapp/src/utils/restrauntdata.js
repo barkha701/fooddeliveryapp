@@ -1,4 +1,4 @@
-const restr = 
+const restra = 
   [
     
       {
@@ -105,4 +105,4 @@ const restr =
       }    
   ];
 
-  export default restr;
+  export default restra;
